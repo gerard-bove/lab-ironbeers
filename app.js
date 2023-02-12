@@ -41,16 +41,13 @@ app.get('/random-beer', (req, res) => {
   .catch(error => console.log(error));
 });
 
-app.get('/specific-beer', (req, res) => {
-  console.log(req.param.name);
-  res.render('especificbeer');
-  /*   punkAPI
-  .getBeer(req.param.id)
+app.get('/beers/:id', (req, res) => {
+    punkAPI
+  .getBeer(req.params.id)
   .then(responseFromAPI => {
-    console.log(req.param.id);
-    res.render('especificbeer', responseFromAPI);
+    res.render('partials/beerpartial', responseFromAPI[0]);
   })
-  .catch(error => console.log(error)); */
+  .catch(error => console.log(error));
 });
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));

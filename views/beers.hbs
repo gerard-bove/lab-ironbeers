@@ -1,7 +1,9 @@
-<div>
+<div id="beer-list">
     {{#each this}}
-    <div>
+    {{#if this.name}}
+    <div id="beer-item">
         {{>beerpartial}}
     </div>
+    {{/if}}
     {{/each}}
 </div>
